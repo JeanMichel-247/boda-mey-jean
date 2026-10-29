@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Generador de invitaciones — Mey & Jean</title>
+  <style>
+    body{font-family:Georgia,serif;background:#21150e;color:#ead7ad;min-height:100vh;display:grid;place-items:center;margin:0;padding:20px}
+    .card{width:min(680px,94vw);background:#382216;border:1px solid #a9782e;border-radius:18px;padding:28px;box-shadow:0 20px 60px #0008}
+    h1{font-family:Georgia,serif}.row{display:grid;gap:8px;margin:16px 0}
+    label{font-weight:bold}.hint{opacity:.7;font-size:.85rem}
+    input{padding:13px;border-radius:10px;border:1px solid #a9782e;background:#ead7ad;color:#382216;font-size:1rem}
+    button{margin-top:12px;padding:13px 18px;border:1px solid #d5b466;border-radius:999px;background:#4b6a3b;color:#fff1c9;cursor:pointer;font-size:1rem}
+    .result{margin-top:22px;padding:16px;border:1px solid #75502a;border-radius:12px;word-break:break-all;background:#24160f}
+    a{color:#e5c47a}
+    code{font-size:.9rem}
+  </style>
+</head>
+<body>
+  <main class="card">
+    <h1>📖 Generador de invitaciones</h1>
+    <p>Genere un enlace personalizado para cada invitado.</p>
+
+    <div class="row">
+      <label for="guest">Nombre del invitado</label>
+      <input id="guest" placeholder="Ej. María Rodríguez">
+    </div>
+
+    <div class="row">
+      <label for="slots">Cantidad de lugares</label>
+      <input id="slots" type="number" min="1" max="20" value="2">
+    </div>
+
+    <button id="generate">Generar enlace</button>
+
+    <section class="result" id="result" hidden>
+      <strong>Enlace personalizado:</strong>
+      <p><a id="link" target="_blank" rel="noopener"></a></p>
+      <button id="copy">Copiar enlace</button>
+    </section>
+  </main>
+
+  <script>
+    const guest = document.getElementById("guest");
+    const slots = document.getElementById("slots");
+    const result = document.getElementById("result");
+    const link = document.getElementById("link");
+
+    document.getElementById("generate").addEventListener("click", () => {
+      const name = guest.value.trim();
+      const n = Math.max(1, parseInt(slots.value || "1", 10));
+      if (!name) return alert("Escriba el nombre del invitado.");
+
+      const base = new URL("index.html", window.location.href);
+      base.searchParams.set("invitado", name);
+      base.searchParams.set("lugares", n);
+
+      link.href = base.toString();
+      link.textContent = base.toString();
+      result.hidden = false;
+    });
+
+    document.getElementById("copy").addEventListener("click", async () => {
+      await navigator.clipboard.writeText(link.href);
+      alert("Enlace copiado.");
+    });
+  </script>
+</body>
+</html>

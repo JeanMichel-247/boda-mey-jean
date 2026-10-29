@@ -23,7 +23,9 @@ const WEDDING = {
     Celebrar con ustedes es nuestro mejor presente. 
     Si es su deseo hacernos un obsequio, 
     preferimos que sea en efectivo o transferencia
-    SINPE: 83632793 (Jean) - 86458203 (Mey)`,
+    
+    SINPE: 
+    83632793 (Jean) - 86458203 (Mey)`,
 
   // Texto que aparece si no se suministra invitado por URL.
   defaultGuest: "Invitado especial",

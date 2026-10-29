@@ -467,48 +467,89 @@ body {
 
 @media (max-width: 500px) {
   .app { 
-    padding-top: 15px; /* Sube un poco el libro para aprovechar la pantalla */
+    padding-top: 10px; 
   }
   
   .book {
-    width: min(96vw, 510px); /* Aprovecha un poco más el ancho del celular */
+    width: min(96vw, 510px); 
   }
   
   .parchment {
-    padding: 4% 5% 3%; /* Reduce el relleno superior, lateral e inferior */
-    gap: 4px; /* Compacta los elementos si usan flexbox */
+    padding: 3% 4% 2%; /* Reduce el relleno al mínimo */
+    justify-content: center;
   }
+
+  /* Compresión de textos y adornos en móvil */
+  .parchment h2 {
+    font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
+    margin: 0 auto 1% !important;
+  }
+  
+  .ornament {
+    font-size: 1.5rem !important;
+    margin-bottom: 1% !important;
+  }
+  
+  .ornament.bottom {
+    margin: 1% 0 0 !important;
+  }
+
+  .calendar-date {
+    font-size: clamp(0.9rem, 3.2vw, 1.2rem) !important;
+    margin: 1% 0 !important;
+  }
+
+  .calendar-time {
+    font-size: clamp(1.2rem, 4.5vw, 1.8rem) !important;
+    margin: 1% 0 !important;
+  }
+
+  /* Fuerza a los párrafos a tener menos margen */
+  .parchment p {
+    font-size: clamp(0.85rem, 3vw, 1rem) !important;
+    margin: 1% 0 !important;
+    line-height: 1.2;
+  }
+
+  /* Hace los botones más delgados en móvil */
+  .actions {
+    width: 90%;
+    gap: 6px;
+    margin-top: 1%;
+  }
+
+  .action-button {
+    min-height: 38px;
+    padding: 6px 12px;
+    font-size: 0.72rem;
+  }
+
+  /* Reduce el tamaño de la imagen final */
+  .imagen-lugar {
+    width: 65%;
+    margin: 2% auto 0;
+  }
+
   .book-controls {
     bottom: 12px;
   }
+  
   .hint {
     bottom: 60px;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .page { transition-duration: 1ms; }
+/* Ajuste extremo para celulares muy cortos */
+@media (max-height: 700px) and (max-width: 500px) {
+  .parchment {
+    padding-top: 1%;
+    padding-bottom: 1%;
+  }
+  .imagen-lugar {
+    width: 55%; /* Achica más la imagen si la pantalla es muy corta */
+  }
 }
 
-.parchment p, 
-  .parchment h2,
-  .parchment h3,
-  .parchment .ornament,
-  .info-grid > div,
-  .actions {
-    margin-top: 1% !important;
-    margin-bottom: 1% !important;
-    line-height: 1.25;
-  }
-
-  .guest-copy,
-  .parchment > p:not(.guest-name):not(.guest-slots) {
-    font-size: clamp(0.85rem, 3.5vw, 1rem); 
-  }
-
-  @media (max-height: 700px) and (max-width: 500px) {
-  .parchment {
-    padding-top: 2%;
-    padding-bottom: 2%;
-  }
+@media (prefers-reduced-motion: reduce) {
+  .page { transition-duration: 1ms; }
 }

@@ -459,6 +459,31 @@ body {
   border-radius: 10px; /* Suaviza ligeramente las esquinas base */
 }
 
+.time-columns {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 95%;
+  margin: 2% auto;
+}
+
+.time-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.time-block p {
+  margin: 2px 0;
+  line-height: 1.2;
+}
+
+.time-block .calendar-time {
+  margin: 5px 0 0 !important; /* Acerca la hora al texto de arriba */
+}
+
 @media (min-width: 760px) {
   .book {
     width: min(70vw, 650px);
@@ -537,6 +562,16 @@ body {
   .hint {
     bottom: 60px;
   }
+
+.time-columns {
+    gap: 8px; /* Reduce la separación entre columnas en móvil */
+    margin: 1% auto !important;
+  }
+
+  .time-block p:not(.calendar-time) {
+    font-size: clamp(0.75rem, 3vw, 0.9rem) !important; /* Achica un poco el texto explicativo */
+  }
+
 }
 
 /* Ajuste extremo para celulares muy cortos */

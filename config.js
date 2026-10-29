@@ -8,8 +8,8 @@ const WEDDING = {
 
   event: {
     title: "La boda de Mey & Jean",
-    start: "2026-02-07T13:00:00",
-    end: "2026-02-07T18:00:00",
+    start: "2027-02-07T13:00:00",
+    end: "2027-02-07T19:00:00",
     timezone: "America/Costa_Rica",
     location: "Finca El Santuario, Grecia, Alajuela, Costa Rica",
     mapsUrl: "https://www.google.com/maps/search/?api=1&query=Rancho%20El%20Santuario%2C%20Grecia%2C%20Alajuela%2C%20Costa%20Rica"

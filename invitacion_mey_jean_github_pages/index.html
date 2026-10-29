@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#24170f">
+  <meta name="description" content="La invitación de boda de Mey & Jean">
+  <title>Mey & Jean — Nuestra historia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loading" class="loading-screen">
+    <div class="loading-book">📖</div>
+    <p>Preparando nuestro cuento…</p>
+  </div>
+
+  <main id="app" class="app" aria-label="Invitación de boda">
+    <section id="book" class="book" aria-live="polite">
+      <div class="book-back"></div>
+
+      <!-- Cada .page es una hoja que se voltea. -->
+      <article class="page page-cover" data-page="0">
+        <div class="page-face">
+          <img src="assets/00_portada.jpg" alt="Portada del libro de Mey y Jean">
+          <button class="cover-open" id="openBook">Abrir nuestro cuento</button>
+        </div>
+      </article>
+
+      <article class="page" data-page="1">
+        <div class="page-face">
+          <img src="assets/05_historia.webp" alt="En un pueblo no tan lejano">
+        </div>
+      </article>
+
+      <article class="page" data-page="2">
+        <div class="page-face">
+          <img src="assets/04_novios.webp" alt="Retrato de Mey y Jean">
+        </div>
+      </article>
+
+      <article class="page" data-page="3">
+        <div class="page-face">
+          <img src="assets/03_invitacion.webp" alt="Invitación a nuestra boda">
+        </div>
+      </article>
+
+      <article class="page dynamic-page" data-page="4">
+        <div class="page-face parchment">
+          <div class="ornament">❦</div>
+          <p class="dropcap"></p>
+          <h2>Esta historia también tiene un lugar para usted</h2>
+          <p class="guest-copy">
+            Este ejemplar de nuestro cuento ha sido preparado especialmente para:
+          </p>
+          <p id="guestName" class="guest-name">Invitado especial</p>
+          <div class="guest-separator">✦</div>
+          <p>Su invitación contempla:</p>
+          <p class="guest-slots"><strong id="guestSlots">2</strong> lugar(es)</p>
+          <div class="ornament bottom">❦</div>
+        </div>
+      </article>
+
+      <article class="page dynamic-page" data-page="5">
+        <div class="page-face parchment info-page">
+          <div class="ornament">❦</div>
+          <h2>Los detalles de nuestro festejo</h2>
+
+          <div class="info-grid">
+            <div>
+              <span>👗</span>
+              <strong>Vestimenta</strong>
+              <p id="dressCode">Elegante / semi-formal</p>
+              <p>Les pedimos reservar los colores blanco y azul para la pareja.</p> 
+            </div>
+            <div>
+              <span>🚗</span>
+              <strong>Parqueo</strong>
+              <p id="parking">Habrá espacio para estacionamiento en el lugar.</p>
+            </div>
+            <div>
+              <span>📍</span>
+              <strong>Ubicación</strong>
+              <p>Finca El Santuario, Grecia</p>
+              <a id="mapsButton" class="action-link" target="_blank" rel="noopener">Ver en Google Maps</a>
+            </div>
+          </div>
+
+          <p id="extraNotes" class="small-note"></p>
+          <div class="ornament bottom">❦</div>
+        </div>
+      </article>
+
+      <article class="page dynamic-page" data-page="6">
+        <div class="page-face parchment">
+          <div class="ornament">❦</div>
+          <h2>Guarda la fecha</h2>
+          <p class="calendar-date">07 de febrero de 2026</p>
+          <p>Favor llegar antes de las </p> 
+          <p class="calendar-time">12:30 p. m.</p>
+          <p>Inicio de la ceremonia</p>
+          <p class="calendar-time">1:00 p. m.</p>
+          <p>Finca El Santuario · Grecia</p>
+
+          <div class="actions">
+            <a id="googleCalendar" class="action-button" target="_blank" rel="noopener">
+              📅 Google Calendar
+            </a>
+            <button id="downloadIcs" class="action-button">
+              🍎 Apple / iPhone / Outlook
+            </button>
+          </div>
+          <div class="imagen-lugar">
+            <img src="assets/07_foto_lugar.jpg" alt="Rancho El Santuario">
+          </div>
+          <div class="ornament bottom">❦</div>
+        </div>
+      </article>
+
+      <article class="page dynamic-page" data-page="7">
+        <div class="page-face parchment">
+          <div class="ornament">❦</div>
+          <h2>Un detalle para nuestro nuevo comienzo</h2>
+          <p id="giftMessage" class="gift-message"></p>
+
+          <div class="gift-box">♥</div>
+
+          <p class="small-note">
+            Lo más importante para nosotros es compartir este día con usted.
+          </p>
+          <div class="ornament bottom">❦</div>
+        </div>
+      </article>
+
+      <article class="page dynamic-page" data-page="8">
+        <div class="page-face parchment rsvp-page">
+          <div class="ornament">❦</div>
+          <h2>¿Nos acompañará?</h2>
+          <p>
+            Nos encantaría contar con usted para escribir juntos este capítulo.
+          </p>
+
+          <p class="rsvp-guest">
+            Invitación para<br>
+            <strong id="rsvpGuest">Invitado especial</strong>
+          </p>
+
+          <a id="rsvpButton" class="action-button primary" target="_blank" rel="noopener">
+            💌 Confirmar asistencia
+          </a>
+
+          <p class="small-note">
+            Le agradecemos confirmar su asistencia a más tardar el 4 de diciembre del 2026.
+          </p>
+          <div class="ornament bottom">❦</div>
+        </div>
+      </article>
+
+      <article class="page page-final" data-page="9">
+        <div class="page-face">
+          <img src="assets/01_vivieron.webp" alt="Y vivieron felices por siempre">
+        </div>
+      </article>
+
+    </section>
+
+    <nav class="book-controls" aria-label="Controles del libro">
+      <button id="prevBtn" title="Página anterior" aria-label="Página anterior">‹</button>
+      <span id="pageCounter">Portada</span>
+      <button id="nextBtn" title="Página siguiente" aria-label="Página siguiente">›</button>
+    </nav>
+
+    <button id="musicBtn" class="music-button" aria-label="Activar música">🔇</button>
+
+    <audio id="bgMusic" loop preload="metadata">
+      <source src="assets/musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="hint" id="gestureHint">Deslice o use las flechas para pasar página</div>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
